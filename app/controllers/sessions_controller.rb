@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     elsif user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user_path
+      redirect_to dashboard_path
     else
       flash[:error] = 'The username or password you entered is incorrect'
       redirect_to root_path

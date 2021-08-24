@@ -27,7 +27,7 @@ RSpec.describe 'Welcome Page' do
         fill_in(:password, with:(user.password))
         click_on('Sign In')
 
-        expect(current_path).to eq('user_path')
+        expect(current_path).to eq(dashboard_path)
       end
 
       it 'cannot authenticate with wrong inputs' do
