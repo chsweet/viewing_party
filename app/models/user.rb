@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
   has_many :parties
   has_many :attendees
+
+  validates :email, presence: true, uniqueness: true
+
+  has_secure_password
 end
