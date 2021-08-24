@@ -14,38 +14,38 @@ RSpec.describe 'Welcome Page' do
     end
 
     it 'can navigate to registration page' do
-      click_on('New to Viewing Part? Register Here')
+      click_on('New to Viewing Party? Register Here')
 
       expect(current_path).to eq(new_user_path)
     end
 
     describe 'login' do
       it 'can authenticate with correct inputs' do
-        user = Create(:user, password: 'password1')
+        user = create(:user, password: 'password1')
 
-        fill_in(:email, with(user.email))
-        fill_in(:password, with(user.password))
+        fill_in(:email, with:(user.email))
+        fill_in(:password, with:(user.password))
         click_on('Sign In')
 
         expect(current_path).to eq('user_path')
       end
 
       it 'cannot authenticate with wrong inputs' do
-        user = Create(:user)
+        user = create(:user)
 
-        fill_in(:email, with(user.email))
-        fill_in(:password, with('wrong_password'))
+        fill_in(:email, with:(user.email))
+        fill_in(:password, with:('wrong_password'))
         click_on('Sign In')
 
         expect(current_path).to eq(root_path)
         expect(page).to have_content('The username or password you entered is incorrect')
 
-        fill_in(:email, with('wrong@email.com'))
-        fill_in(:password, with(user.password))
+        fill_in(:email, with:('wrong@email.com'))
+        fill_in(:password, with:(user.password))
         click_on('Sign In')
 
         expect(current_path).to eq(root_path)
-        expect(page).to have_content('The username or password you entered is incorrect')
+        expect(page).to have_content('Account does not exist. Have you tried registering?')
       end
     end
   end

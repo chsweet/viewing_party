@@ -1,0 +1,13 @@
+<h1>Welcome to Viewing Party</h1>
+
+<p>Viewing Party is an app that allows you to create movie events with your friends</p>
+
+<%= form_with url: sessions_path, local: true do |f| %>
+  <%= f.label :email, 'Email:' %>
+  <%= f.text_field :email %>
+  <%= f.label :password, 'Password:' %>
+  <%= f.text_field :password %>
+  <%= f.submit 'Sign In' %>
+<% end %>
+
+<%= link_to 'New to Viewing Party? Register Here', new_user_path %>
