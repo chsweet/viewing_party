@@ -1,4 +1,4 @@
-FactoryBot.defince do
+FactoryBot.define do
   factory :party do
     movie { Faker::Internet.email }
     association :user, factory: :user

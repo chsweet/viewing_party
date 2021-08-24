@@ -1,4 +1,4 @@
-FactoryBot.defince do
+FactoryBot.define do
   factory :follow do
     association :user, factory: :user
   end
