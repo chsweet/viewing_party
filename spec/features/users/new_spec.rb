@@ -8,9 +8,9 @@ RSpec.describe 'registration page' do
       password = 'password'
 
       expect(page).to have_content('Please Register for an Account')
-      fill_in(user:[:email], with:(email))
-      fill_in(:user[password], with:(password))
-      fill_in(:user[password_confirmation], with:(password))
+      fill_in(:email, with:(email))
+      fill_in(:password, with:(password))
+      fill_in(:password_confirmation, with:(password))
       click_on('Register')
 
       expect(current_path).to eq(dashboard_path)
