@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(user_params)
+    new_user = User.create(user_params)
+    session[:user_id] = new_user.id
+    redirect_to dashboard_path
   end
 
   def show
