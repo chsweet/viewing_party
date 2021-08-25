@@ -13,3 +13,5 @@ deploy:
   app:
   run: rails db:migrate
 dist: trusty
+before_install:
+  - gem install bundler
