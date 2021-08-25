@@ -1,0 +1,13 @@
+<h1>Welcome to Viewing Party</h1>
+
+<h3>Please Register for an Account</h3>
+
+<%= form_with model: @user do |f| %>
+  <%= f.label :email, 'Email:' %>
+  <%= f.text_field :email %>
+  <%= f.label :password, 'Password:' %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation, 'Confirm Password:' %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit 'Register' %>
+<% end %>

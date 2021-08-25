@@ -16,7 +16,7 @@ RSpec.describe 'Welcome Page' do
     it 'can navigate to registration page' do
       click_on('New to Viewing Party? Register Here')
 
-      expect(current_path).to eq(new_user_path)
+      expect(current_path).to eq('/registration')
     end
 
     describe 'login' do
