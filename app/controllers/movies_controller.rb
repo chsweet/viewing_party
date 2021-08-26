@@ -1,9 +1,15 @@
 class MoviesController < ApplicationController
   def discover
-    @user = current_user
   end
 
   def index
+    json = MovieDbService.new.top_40
+    @top_movies = json.map do |movie|
+      Movie.new(movie)
+    end
+  end
+
+  def show
 
   end
 end
