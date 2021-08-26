@@ -10,9 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    require "pry";binding.pry
     @follow = Follow.new
-    @friends = Follow.user_friends(current_user)
   end
 
   private
