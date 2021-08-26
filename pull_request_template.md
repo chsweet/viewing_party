@@ -1,5 +1,5 @@
-##Type of Change:
+## Type of Change:
 
-##What does it implement:
+## What does it implement:
 
-##Any relevant logs, error outputs, etc.:
+## Any relevant logs, error outputs, etc.:
