@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Follow do
   describe 'relationships' do
-    it {should belong_to :host}
-    it {should belong_to :followed}
+    it {should belong_to :user}
+    it {should belong_to :friend}
   end
 
   describe 'validations' do
-    it {should validate_presence_of :host_id}
-    it {should validate_presence_of :followed_id}
+    it {should validate_presence_of :user_id}
+    it {should validate_presence_of :friend_id}
   end
 
   before :each do
@@ -18,11 +18,11 @@ RSpec.describe Follow do
     @user_4 = create(:user)
     @user_5 = create(:user)
 
-    @followed_1 = Follow.create!(host_id: @user_1.id, followed_id: @user_2.id)
-    @followed_2 = Follow.create!(host_id: @user_1.id, followed_id: @user_4.id)
-    @followed_3 = Follow.create!(host_id: @user_1.id, followed_id: @user_5.id)
-    @followed_4 = Follow.create!(host_id: @user_2.id, followed_id: @user_3.id)
-    @followed_5 = Follow.create!(host_id: @user_2.id, followed_id: @user_4.id)
+    @followed_1 = Follow.create!(user_id: @user_1.id, friend_id: @user_2.id)
+    @followed_2 = Follow.create!(user_id: @user_1.id, friend_id: @user_4.id)
+    @followed_3 = Follow.create!(user_id: @user_1.id, friend_id: @user_5.id)
+    @followed_4 = Follow.create!(user_id: @user_2.id, friend_id: @user_3.id)
+    @followed_5 = Follow.create!(user_id: @user_2.id, friend_id: @user_4.id)
   end
 
   describe 'class methods' do
