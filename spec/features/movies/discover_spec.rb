@@ -27,8 +27,9 @@ RSpec.describe 'Discover' do
 
   describe 'unauthenticated user' do
     it 'redirects to root path' do
-      expect(page).to have_content("Uh Oh, Can't go there! Try logging in or registering as a new user.")
+      visit('/discover')
       expect(current_path).to eq(root_path)
+      expect(page).to have_content("Uh Oh, Can't go there! Try logging in or registering as a new user.")
     end
   end
 end
