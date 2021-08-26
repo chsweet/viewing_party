@@ -17,7 +17,7 @@ RSpec.describe 'Movies Index' do
            to_return(status: 200, body: json_response, headers: {})
     end
 
-    xit 'grabs top 40 movies from discover page' do
+    it 'grabs top 40 movies from discover page' do
       visit '/discover'
       click_on('Find Top Rated Movies')
 
@@ -26,7 +26,7 @@ RSpec.describe 'Movies Index' do
       expect("Zack Snyder's Justice League").to_appear_before("The Conjuring: The Devil Made Me Do It")
     end
 
-    xit 'grabs top 40 movies from movies page' do
+    it 'grabs top 40 movies from movies page' do
       visit movies_path
 
       expect('The Suicide Squad').to_appear_before('PAW Patrol: The Movie')
