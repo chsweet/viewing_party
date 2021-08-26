@@ -8,4 +8,8 @@ class MoviesController < ApplicationController
       Movie.new(movie)
     end
   end
+
+  def show
+
+  end
 end
