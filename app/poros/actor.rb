@@ -1,5 +1,5 @@
 class Actor
-  attr_reader :name
+  attr_reader :name,
               :role
   def initialize (data)
     @name = data[:name]

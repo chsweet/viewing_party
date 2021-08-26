@@ -1,5 +1,5 @@
 class Review
-  attr_reader :author
+  attr_reader :author,
               :content
   def initialize(data)
     @author = data[:author]
