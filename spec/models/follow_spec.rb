@@ -28,13 +28,13 @@ RSpec.describe Follow do
   describe 'class methods' do
     describe '::user_friends' do
       it 'returns all the current user friends followed' do
-        actual = Follow.user_friends(@user_1).map do |follow|
-          follow.followed_id
+        actual = Follow.user_friends(@user_1).map do |user|
+          user.email
         end
 
         expect(Follow.user_friends(@user_1).length).to eq(3)
         expect(Follow.user_friends(@user_1)).to_not include(@user_3)
-        expect(actual).to eq([@user_2.id, @user_4.id, @user_5.id])
+        expect(actual).to eq([@user_2.email, @user_4.email, @user_5.email])
       end
     end
   end
