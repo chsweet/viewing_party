@@ -38,7 +38,7 @@ RSpec.describe 'user dashboard/index page' do
     expect(page).to have_content("I'm sorry your friend cannot be found.")
   end
 
-  xit 'message shows if no friends have been added in friend section' do
+  it 'message shows if no friends have been added in friend section' do
     within(:css, "#friends") do
       expect(page).to have_content("You currently have no friends.")
     end

@@ -11,7 +11,11 @@
     <%= f.submit 'Add Friend' %>
   <% end %>
   <br>
-  <% current_user.user_friends.each do |friend| %>
-    <%= friend.email %>
+  <% if current_user.user_friends == [] %>
+    <p>You currently have no friends.</p>
+  <% else %>
+    <% current_user.user_friends.each do |friend| %>
+      <%= friend.email %>
+    <% end %>
   <% end %>
 </section>
