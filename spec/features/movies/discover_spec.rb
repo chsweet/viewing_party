@@ -7,6 +7,16 @@ RSpec.describe 'Discover' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
 
+      json_response = File.read('spec/fixtures/top_40_movies.json')
+      stub_request(:get, "https://api.themoviedb.org/3/discover/movie?api_key=bf577430a36611e1e70e3fd900b3d9ba&language=en&page=1&sort_by=popularity.desc").
+           with(
+             headers: {
+            'Accept'=>'*/*',
+            'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+            'User-Agent'=>'Faraday v1.7.0'
+             }).
+           to_return(status: 200, body: json_response, headers: {})
+
       visit('/discover')
     end
 

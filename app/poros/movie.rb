@@ -8,7 +8,7 @@ class Movie
               :reviews,
               :id
   def initialize(data)
-    @movie_id = data[:id]
+    @id = data[:id]
     @title = data[:original_title]
     @vote_average = data[:vote_average]
     @runtime = data[:runtime]
