@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
   has_secure_password
 
-
   def user_friends
     friends
   end

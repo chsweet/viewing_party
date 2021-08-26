@@ -19,3 +19,11 @@
     <% end %>
   <% end %>
 </section>
+<br>
+<h3>Viewing Parties</h3>
+<hr>
+<% current_user.parties.each do |party| %>
+  <section id="host_parties-<% party.id %>">
+    <%= link_to party.movie, "/movie/#{party.movie_id}" %>
+  </section>
+<% end %>
