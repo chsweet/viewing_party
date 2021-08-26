@@ -3,11 +3,14 @@ class FollowsController < ApplicationController
   end
 
   def create
-    followed = User.find_by(email: params[:follow][:email])
-    Follow.create(host_id: current_user.id, followed_id: followed.id)
-    redirect_to dashboard_path
+    friend = User.find_by(email: params[:follow][:email])
+
+    if friend.nil?
+      flash[:notice] = "I'm sorry your friend cannot be found."
+      redirect_to dashboard_path
+    else
+      Follow.create(user_id: current_user.id, friend_id: friend.id)
+      redirect_to dashboard_path
+    end
   end
-
-  private
-
 end

@@ -11,7 +11,7 @@
     <%= f.submit 'Add Friend' %>
   <% end %>
   <br>
-  <% @friends.each do |friend| %>
+  <% current_user.user_friends.each do |friend| %>
     <%= friend.email %>
   <% end %>
 </section>
