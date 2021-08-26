@@ -2,8 +2,28 @@
 <br>
 <%= button_to 'Discover Movies' %>
 <br>
-<h3>Friedns</h3>
-<br><hr>
+<h3>Friends</h3>
+<hr>
 <section id="friends">
-  
+  <%= form_with model: @follow, local: true do |f|  %>
+    <%= f.label :email, "Friend's E-mail" %>
+    <%= f.text_field :email, id: :follow_email %>
+    <%= f.submit 'Add Friend' %>
+  <% end %>
+  <br>
+  <% if current_user.user_friends == [] %>
+    <p>You currently have no friends.</p>
+  <% else %>
+    <% current_user.user_friends.each do |friend| %>
+      <%= friend.email %>
+    <% end %>
+  <% end %>
 </section>
+<br>
+<h3>Viewing Parties</h3>
+<hr>
+<% current_user.parties.each do |party| %>
+  <section id="host_parties-<% party.id %>">
+    <%= link_to party.movie, "/movie/#{party.movie_id}" %>
+  </section>
+<% end %>

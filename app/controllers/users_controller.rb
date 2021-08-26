@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @follow = Follow.new
   end
 
   private
