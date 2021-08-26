@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create]
   get '/registration', to: 'users#new'
   get '/dashboard', to: 'users#show'
+  get '/discover', to: 'movies#discover'
+  resources :movies
   resources :sessions
 
 end
