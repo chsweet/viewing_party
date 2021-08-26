@@ -2,8 +2,16 @@
 <br>
 <%= button_to 'Discover Movies' %>
 <br>
-<h3>Friedns</h3>
-<br><hr>
+<h3>Friends</h3>
+<hr>
 <section id="friends">
-  
+  <%= form_with model: @follow, local: true do |f|  %>
+    <%= f.label :email, "Friend's E-mail" %>
+    <%= f.text_field :email, id: :follow_email %>
+    <%= f.submit 'Add Friend' %>
+  <% end %>
+  <br>
+  <% @friends.each do |friend| %>
+    <%= friend.email %>
+  <% end %>
 </section>

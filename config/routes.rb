@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/registration', to: 'users#new'
   get '/dashboard', to: 'users#show'
   resources :sessions
-
+  resources :follows, only: [:new, :create]
 end

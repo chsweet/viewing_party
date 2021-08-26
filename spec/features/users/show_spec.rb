@@ -20,15 +20,10 @@ RSpec.describe 'user dashboard/index page' do
     ###click_button path to Discover page
   end
 
-  xit 'message shows if no friends have been added in friend section' do
-    within("#friends") do
-      expect(page).to have_content("You currently have no friends.")
-    end
-  end
-
-  xit 'has friend section with a text field to enter a valid email and add a friends' do
-    within("#friends") do
-      fill_in "Friend's E-mail", with: @user_2.email
+  it 'has friend section with a text field to enter a valid email and add a friends' do
+    within(:css, "#friends") do
+      fill_in :follow_email, with: @user_2.email
+      click_button 'Add Friend'
 
       expect(page).to have_content("#{@user_2.email}")
     end
@@ -39,6 +34,12 @@ RSpec.describe 'user dashboard/index page' do
       fill_in "Friend's E-mail", with: 'fail-test@email.com'
 
       expect(page).to have_content("I'm sorry your friend cannot be found.")
+    end
+  end
+
+  xit 'message shows if no friends have been added in friend section' do
+    within("#friends") do
+      expect(page).to have_content("You currently have no friends.")
     end
   end
 end
