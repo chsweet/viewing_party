@@ -8,4 +8,9 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_secure_password
+
+
+  def user_friends
+    friends
+  end
 end
