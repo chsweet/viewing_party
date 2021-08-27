@@ -14,6 +14,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-
+    require "pry";binding.pry
+    json = MovieDbService.new.movie_details(params[:id])
+    @movie = Movie.new(json)
   end
 end
