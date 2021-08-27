@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def user_friends
     friends
   end
+
+  def invited_parties
+    Party.joins(:attendees).where("attendees.user_id = ?", self.id)
+  end
 end

@@ -27,6 +27,18 @@ RSpec.describe User do
     @followed_3 = Follow.create!(user_id: @user_1.id, friend_id: @user_5.id)
     @followed_4 = Follow.create!(user_id: @user_2.id, friend_id: @user_3.id)
     @followed_5 = Follow.create!(user_id: @user_2.id, friend_id: @user_4.id)
+
+    @party_1 = create(:party, user_id: @user_1.id)
+    @party_2 = create(:party, user_id: @user_4.id)
+    @party_3 = create(:party, user_id: @user_5.id)
+
+    @attendee_1 = create(:attendee, user_id: @user_2.id, party_id: @party_1.id)
+    @attendee_2 = create(:attendee, user_id: @user_4.id, party_id: @party_1.id)
+    @attendee_3 = create(:attendee, user_id: @user_5.id, party_id: @party_1.id)
+    @attendee_4 = create(:attendee, user_id: @user_1.id, party_id: @party_2.id)
+    @attendee_5 = create(:attendee, user_id: @user_2.id, party_id: @party_2.id)
+    @attendee_6 = create(:attendee, user_id: @user_1.id, party_id: @party_3.id)
+    @attendee_7 = create(:attendee, user_id: @user_3.id, party_id: @party_3.id)
   end
 
   describe 'instance methods' do
@@ -38,7 +50,14 @@ RSpec.describe User do
 
         expect(@user_1.user_friends.length).to eq(3)
         expect(@user_1.user_friends).to_not include(@user_3)
-        expect(actual).to eq([@user_2.email, @user_4.email, @user_5.email])
+        expect(actual).to match([@user_2.email, @user_4.email, @user_5.email])
+      end
+    end
+
+    describe '#invited_parties' do
+      it 'returns all parties user was invited to' do
+        expect(@user_1.invited_parties).to match([@party_2, @party_3])
+        expect(@user_1.invited_parties).to_not include(@party_1)
       end
     end
   end

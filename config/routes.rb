@@ -8,6 +8,5 @@ Rails.application.routes.draw do
   get '/discover', to: 'movies#discover'
   resources :movies
   resources :sessions
-  resources :movies
   resources :follows, only: [:new, :create]
 end
