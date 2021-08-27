@@ -30,7 +30,19 @@
     <li>Host: <%= current_user.email %></li>
     <br>
     <% party.attendees.each do |attendee| %>
-    <li>Attendees: <%= attendee.id %></li>
+    <li>Attendees: <%= attendee.user_email %></li>
+    <% end %>
+  </section>
+<% end %>
+<% current_user.invited_parties.each do |party| %>
+  <section id="invited_parties-<%= party.id %>">
+    <%= link_to party.movie, "/movie/#{party.movie_id}" %>
+    <li><%= party.date_time %></li>
+    <br>
+    <li>Host: <%= party.user_email %></li>
+    <br>
+    <% party.attendees.each do |attendee| %>
+    <li>Attendees: <%= attendee.user_email %></li>
     <% end %>
   </section>
 <% end %>
