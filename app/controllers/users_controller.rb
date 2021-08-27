@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    require "pry";binding.pry
     @follow = Follow.new
   end
 

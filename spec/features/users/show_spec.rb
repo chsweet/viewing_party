@@ -19,7 +19,7 @@ RSpec.describe 'user dashboard/index page' do
 
   it 'displays button to Discover Moives page' do
     expect(page).to have_button("Discover Movies")
-    
+
     click_button 'Discover Movies'
 
     expect(current_path).to eq(discover_path)
@@ -28,7 +28,7 @@ RSpec.describe 'user dashboard/index page' do
   describe 'friends section' do
     it 'has friend section with a text field to enter a valid email and add a friends' do
       within("#friends") do
-        fill_in :follow_email, with: @user_2.email
+        fill_in :follow_email, with: @user_3.email
         click_button 'Add Friend'
       end
       @user_1.user_friends.reload
@@ -37,7 +37,7 @@ RSpec.describe 'user dashboard/index page' do
 
       visit dashboard_path
 
-      expect(page).to have_content(@user_2.email)
+      expect(page).to have_content(@user_3.email)
     end
 
     it 'give error when invalid email is entered in friend section text field' do
@@ -50,7 +50,7 @@ RSpec.describe 'user dashboard/index page' do
     end
 
     it 'message shows if no friends have been added in friend section' do
-      within("#friends") do
+        within("#friends") do
         expect(page).to have_content("You currently have no friends.")
       end
     end
@@ -67,9 +67,15 @@ RSpec.describe 'user dashboard/index page' do
       @attendee_1 = create(:attendee, user_id: @user_2.id, party_id: @party_1.id)
       @attendee_2 = create(:attendee, user_id: @user_4.id, party_id: @party_1.id)
       @attendee_3 = create(:attendee, user_id: @user_5.id, party_id: @party_1.id)
-    end
 
+      @user_1.reload
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+
+      visit dashboard_path
+    end
     xit 'link to movie show page for the viewing party current user created' do
+      #need to figure out the movie link and API call
       within("#host_parties-#{@party_1.id}") do
         expect(page).to have_link(@party_1.movie)
 
@@ -79,19 +85,21 @@ RSpec.describe 'user dashboard/index page' do
       end
     end
 
-    xit 'displays the date & time of event that current user created' do
+    it 'displays the date & time of event that current user created' do
+      #need to format the date
       within("#host_parties-#{@party_1.id}") do
         expect(page).to have_content(@party_1.date_time)
       end
     end
 
-    xit 'displays current user is hosting the party' do
+    it 'displays current user is hosting the party' do
       within("#host_parties-#{@party_1.id}") do
-        expect(page).to have_content("Host: #{current_user.email}")
+        expect(page).to have_content("Host: #{@user_1.email}")
       end
     end
 
-    xit 'displays all friends invited to viewing party current user created' do
+    it 'displays all friends invited to viewing party current user created' do
+      # need the email for the attendee
       within("#host_parties-#{@party_1.id}") do
         expect(page).to have_content(@user_2.email)
         expect(page).to_not have_content(@user_3.email)

@@ -1,6 +1,6 @@
 <h1>Welcome <%= current_user.email %>!</h1>
 <br>
-<%= button_to 'Discover Movies', '/discover', method: :get %>
+<%= button_to 'Discover Movies', discover_path, method: :get %>
 <br>
 <h3>Friends</h3>
 <hr>
@@ -23,7 +23,14 @@
 <h3>Viewing Parties</h3>
 <hr>
 <% current_user.parties.each do |party| %>
-  <section id="host_parties-<% party.id %>">
+  <section id="host_parties-<%= party.id %>">
     <%= link_to party.movie, "/movie/#{party.movie_id}" %>
+    <li><%= party.date_time %></li>
+    <br>
+    <li>Host: <%= current_user.email %></li>
+    <br>
+    <% party.attendees.each do |attendee| %>
+    <li>Attendees: <%= attendee.id %></li>
+    <% end %>
   </section>
 <% end %>
