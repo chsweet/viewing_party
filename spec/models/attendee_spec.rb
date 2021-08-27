@@ -34,9 +34,10 @@ RSpec.describe Attendee do
   describe 'instance methods' do
     describe '#attendee_email' do
       it 'returns the attendees email' do
-        expect(@attendee_1.attendee_email).to eq(@user_2.email)
-        expect(@attendee_2.attendee_email).to eq(@user_4.email)
-        expect(@attendee_3.attendee_email).to eq(@user_5.email)
+        expect(@party_1.user_email).to eq(@user_1.email)
+        expect(@attendee_1.user_email).to eq(@user_2.email)
+        expect(@attendee_2.user_email).to eq(@user_4.email)
+        expect(@attendee_3.user_email).to eq(@user_5.email)
       end
     end
   end
