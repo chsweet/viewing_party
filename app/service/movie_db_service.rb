@@ -20,7 +20,7 @@ class MovieDbService
     #change loop. need to include total results calculation
     loop do
       page += 1
-      endpoint = endpoint + "&#{page}"
+      endpoint = endpoint + "&page=#{page}"
       response = get_data(endpoint)
       json << response[:results]
       break if json.flatten.length >= results_num || json.flatten.length == response[:total_results]
