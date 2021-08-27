@@ -16,6 +16,7 @@ class Movie
     @summary = data[:overview]
     @cast = []
     @reviews = []
+
   end
 
   def genre_names(array)

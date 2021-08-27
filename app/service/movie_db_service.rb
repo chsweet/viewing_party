@@ -6,7 +6,7 @@ class MovieDbService
 
   def search(input)
     endpoint = "https://api.themoviedb.org/3/search/movie/?api_key=bf577430a36611e1e70e3fd900b3d9ba&query=#{input}"
-    get_data(endpoint)
+    result_loop(40, endpoint)
   end
 
   def get_data(endpoint)
@@ -18,11 +18,12 @@ class MovieDbService
     page = 0
     json = []
     #change loop. need to include total results calculation
-    until json.flatten.length >= results_num
+    loop do
       page += 1
       endpoint = endpoint + "&page=#{page}"
-      # require "pry";binding.pry
-      json << get_data(endpoint)[:results]
+      response = get_data(endpoint)
+      json << response[:results]
+      break if json.flatten.length >= results_num || json.flatten.length == response[:total_results]
     end
     json.flatten
   end
