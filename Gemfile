@@ -24,6 +24,7 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 5.0'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem "figaro"
 end
 
 group :development do
@@ -39,6 +40,7 @@ group :test do
   gem 'simplecov'
   gem 'webmock'
   gem 'orderly'
+  gem 'vcr'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
