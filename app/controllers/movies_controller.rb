@@ -3,8 +3,12 @@ class MoviesController < ApplicationController
   end
 
   def index
-    json = MovieDbService.new.top_40
-    @top_movies = json.map do |movie|
+    if params[:search].nil?
+      json = MovieDbService.new.top_40
+    else
+      json = MovieDbService.new.search(params[:search].downcase)
+    end
+    @movies = json.map do |movie|
       Movie.new(movie)
     end
   end
