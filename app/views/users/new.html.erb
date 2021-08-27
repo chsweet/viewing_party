@@ -2,7 +2,7 @@
 
 <h3>Please Register for an Account</h3>
 
-<%= form_with model: @user do |f| %>
+<%= form_with model: @user, local: true do |f| %>
   <%= f.label :email, 'Email:' %>
   <%= f.text_field :email, id: :email %>
   <%= f.label :password, 'Password:' %>
