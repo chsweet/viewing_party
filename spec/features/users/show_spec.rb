@@ -19,8 +19,10 @@ RSpec.describe 'user dashboard/index page' do
 
   it 'displays button to Discover Moives page' do
     expect(page).to have_button("Discover Movies")
+    
+    click_button 'Discover Movies'
 
-    ###click_button path to Discover page
+    expect(current_path).to eq(discover_path)
   end
 
   describe 'friends section' do
