@@ -21,10 +21,9 @@ class MovieDbService
     loop do
       page += 1
       endpoint = endpoint + "&#{page}"
-      json << get_data(endpoint)[:results]
-      if json.flatten.length >= results_num || json.flatten.length == get_data(endpoint)[:total_results]
-        break
-      end
+      response = get_data(endpoint)
+      json << response[:results]
+      break if json.flatten.length >= results_num || json.flatten.length == response[:total_results]
     end
     json.flatten
   end
