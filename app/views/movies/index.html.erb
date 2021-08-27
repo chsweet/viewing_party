@@ -9,7 +9,7 @@
 
 <table>
   <% @movies.each do |movie| %>
-  <tr>
+  <tr class = 'movie'>
     <td><%= link_to "#{movie.title}", "/movies/#{movie.id}"%></td>
     <td><p>Vote Average: <%= movie.vote_average %></p></td>
   </tr>

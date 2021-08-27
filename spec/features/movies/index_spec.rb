@@ -50,6 +50,8 @@ RSpec.describe 'Movies Index' do
       click_on('Find Top Rated Movies')
 
       expect(current_path).to eq(movies_path)
+
+      expect(page).to have_css(".movie", count: 40)
       expect('The Suicide Squad').to appear_before('PAW Patrol: The Movie')
       expect("Zack Snyder's Justice League").to appear_before("The Conjuring: The Devil Made Me Do It")
     end
@@ -57,6 +59,7 @@ RSpec.describe 'Movies Index' do
     it 'grabs top 40 movies from movies page' do
       visit movies_path
 
+      expect(page).to have_css(".movie", count: 40)
       expect('The Suicide Squad').to appear_before('PAW Patrol: The Movie')
       expect("Zack Snyder's Justice League").to appear_before("The Conjuring: The Devil Made Me Do It")
     end
@@ -77,6 +80,8 @@ RSpec.describe 'Movies Index' do
       click_on('Find Movies')
 
       expect(current_path).to eq(movies_path)
+
+      expect(page).to have_css(".movie", count: 40)
       expect(page).to have_content('Titanic')
       expect(page).to have_content('Vote Average: 7.9')
     end
@@ -88,6 +93,8 @@ RSpec.describe 'Movies Index' do
       click_on('Find Movies')
 
       expect(current_path).to eq(movies_path)
+
+      expect(page).to have_css(".movie", count: 40)
       expect(page).to have_content('Titanic')
       expect(page).to have_content('Vote Average: 7.9')
     end
