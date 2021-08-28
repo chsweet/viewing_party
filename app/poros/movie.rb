@@ -31,6 +31,6 @@ class Movie
   end
 
   def minutes
-
+    @runtime % 60
   end
 end

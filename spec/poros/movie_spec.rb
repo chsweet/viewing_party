@@ -34,6 +34,7 @@ RSpec.describe Movie do
     describe 'minutes' do
       it 'returns movie minutes' do
         expect(@movie.minutes).to eq(19)
+        expect(@movie2.minutes).to eq(55)
       end
     end
   end
