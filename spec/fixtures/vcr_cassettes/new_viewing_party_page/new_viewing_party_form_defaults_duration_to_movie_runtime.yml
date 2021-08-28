@@ -52,11 +52,11 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 f7e7ff7c4baf897c3283c9d2e14182e1.cloudfront.net (CloudFront)
+      - 1.1 0a183988a665a39a6d1ac5c64d3626da.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - LAX50-C2
       X-Amz-Cf-Id:
-      - i-V2882Qyt1wJyGZ06-Yq34w3b9Kd__pYnjoCyr2o-dKe3odFN9YfQ==
+      - FuKD_c2p2i-fQ4NtyFmFsn9rJA1EXMoPlu_IH80p_NhqSwS2Cby8Mw==
       Age:
       - '24384'
     body:

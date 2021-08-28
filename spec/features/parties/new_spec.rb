@@ -15,28 +15,21 @@ RSpec.describe 'new viewing party page' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
   end
 
-  xit 'displays a link to create a viewing party for movie', :vcr do
-    visit movie_path(550)
-
-    click_button('Create Viewing Party for Movie')
-
-    expect(current_path).to eq(new_party_path)
-  end
-
   it 'displays the movie title', :vcr do
-    visit new_party_path
+    visit new_party_path(params: {movie_id: 550})
 
-    expect(page).to have_content('Movie Title Fight Club')
+
+    expect(page).to have_content('Movie Title: Fight Club')
   end
 
-  xit 'new viewing party form defaults duration to movie runtime', :vcr do
-    visit new_party_path
+  it 'new viewing party form defaults duration to movie runtime', :vcr do
+    visit new_party_path(params: {movie_id: 550})
 
-    expect(page).to have_content('Duration of Party 139')
+    find_field(:duration, with: 139).value
   end
 
-  xit 'it displays checkbox to invite current user friends' do
-    visit new_party_path
+  it 'it displays checkbox to invite current user friends', :vcr do
+    visit new_party_path(params: {movie_id: 550})
 
     expect(page).to have_content(@user_2.email)
     expect(page).to_not have_content(@user_3.email)
@@ -44,14 +37,17 @@ RSpec.describe 'new viewing party page' do
     expect(page).to have_content(@user_5.email)
   end
 
-  xit 'can create a new party and redirect_to current_user dashboard' do
-    visit new_party_path
+  it 'can create a new party and redirect_to current_user dashboard', :vcr do
+    visit new_party_path(params: {movie_id: 550})
 
-    expext(page).to have_content('Viewing Party Details')
+    expect(page).to have_content('Viewing Party Details')
 
-    fill_in 'Duration of Party', with: 180
-    fill_in 'Day', with: '12/20/20'
-    fill_in 'Start Time', with: '1:00'
+    fill_in :duration, with: 180
+    select('2020', from: :party_date_time_1i)
+    select('November', from: :party_date_time_2i)
+    select('5', from: :party_date_time_3i)
+    select('07 PM', from: :party_date_time_4i)
+    select('21', from: :party_date_time_5i)
     check("#{@user_2.email}")
     check("#{@user_5.email}")
 
