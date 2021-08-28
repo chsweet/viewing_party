@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 28 Aug 2021 00:10:08 GMT
+      - Sat, 28 Aug 2021 00:40:44 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -40,16 +40,16 @@ http_interactions:
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 08523828eac58ab546028ccf39ec743c.cloudfront.net (CloudFront)
+      - 1.1 02b9f097e6bccd6a8d89ebf056435cb5.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - LAX3-C3
+      - LAX50-C2
       X-Amz-Cf-Id:
-      - Ckj7jY29cYRQNeUtFClqKvpFqWvkNR3QDA1uACcz4IhTTHWuAzniPA==
+      - kigOHLGgTKtk3NT-0w8NnS-atcbsiOegDOcdeS_UswreZAoY-6QMnQ==
     body:
       encoding: UTF-8
       string: '{"status_code":7,"status_message":"Invalid API key: You must be granted
         a valid key.","success":false}
 
         '
-  recorded_at: Sat, 28 Aug 2021 00:10:08 GMT
+  recorded_at: Sat, 28 Aug 2021 00:40:44 GMT
 recorded_with: VCR 6.0.0

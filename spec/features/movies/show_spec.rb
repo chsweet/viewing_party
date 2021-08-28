@@ -12,8 +12,8 @@ RSpec.describe 'movies show page' do
 
     expect(page).to have_content("Fight Club")
     expect(page).to have_content('Vote Average: 8.4')
-    #expect(page).to have_content('Runtime: 2 hr 19 min')
-    #expect(page).to have_content('Genre(s): Drama')
+    expect(page).to have_content('Runtime: 2 hr 19 min')
+    expect(page).to have_content('Genre(s): Drama')
     expect(page).to have_content("A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
   end
 end
