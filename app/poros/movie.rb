@@ -5,18 +5,18 @@ class Movie
               :genres,
               :summary,
               :id
-              
+
   def initialize(data)
     @id = data[:id]
     @title = data[:original_title]
     @vote_average = data[:vote_average]
     @runtime = data[:runtime]
-    @genres = genre_names(data[:genres])
+    @genres = data[:genres]
     @summary = data[:overview]
   end
 
-  def genre_names(data_array)
-    data_array.map do |data|
+  def genre_names
+    @genres.map do |data|
       data[:name]
     end
   end
