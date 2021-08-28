@@ -19,3 +19,8 @@
 
 <h3>Summary</h3>
 <p><%= @movie.summary %></p>
+
+<h3>Cast</h3>
+<% @actors.each do |actor| %>
+  <p class = 'actor' ><%= actor.name %> as <%= actor.role %></p>
+<% end %>

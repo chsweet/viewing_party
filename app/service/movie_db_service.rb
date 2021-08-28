@@ -14,6 +14,11 @@ class MovieDbService
     get_data(endpoint)
   end
 
+  def movie_actors(movie_id)
+    endpoint="/3/movie/#{movie_id}/credits?"
+    get_data(endpoint)
+  end
+
   def get_data(endpoint)
     conn = Faraday.new(url: "https://api.themoviedb.org/") do |faraday|
       faraday.params['api_key'] = ENV['movie_api_key']
