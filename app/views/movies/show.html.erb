@@ -10,7 +10,7 @@
     <h3>Runtime: <%= @movie.hours %> hr <%= @movie.minutes %> min </h3>
   </div>
   <div class="col-6">
-    <h3>Genre(s): <% @movie.genres.each do |genre| %>
+    <h3>Genre(s): <% @movie.genre_names.each do |genre| %>
         <%= genre %>
       <% end %></h3>
   </div>
