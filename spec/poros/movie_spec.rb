@@ -20,7 +20,7 @@ RSpec.describe Movie do
 
     describe 'genre names' do
       it 'returns an array of movie genres' do
-        expect(@movie.genre_names(@data[:genres])).to eq(['comedy', 'animation'])
+        expect(@movie.genre_names).to eq(['comedy', 'animation'])
       end
     end
 
