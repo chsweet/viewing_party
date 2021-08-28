@@ -7,6 +7,14 @@ RSpec.describe 'movies show page' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
   end
 
+  it 'displays a link to create a viewing party for movie', :vcr do
+    visit movie_path(550)
+
+    click_button('Create Viewing Party for Movie')
+
+    expect(current_path).to eq(new_party_path)
+  end
+
   it 'can show movie title, summary, vote average, runtime, genre', :vcr do
     visit movie_path(550)
 

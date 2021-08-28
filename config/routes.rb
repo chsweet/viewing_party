@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :movies
   resources :sessions
   resources :follows, only: [:new, :create]
+  resources :parties, only: [:new, :create]
 end
