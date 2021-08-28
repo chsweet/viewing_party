@@ -29,4 +29,14 @@ RSpec.describe 'movies show page' do
 
     expect(page).to have_css(".actor", count: 10)
   end
+
+  it 'displays movie review count and all review authors and content', :vcr do
+    visit movie_path(550)
+
+    expect(page).to have_content('7 Reviews')
+    expect(page).to have_content('Author: Goddard')
+    # expect(page).to have_content("Pretty awesome movie.  It shows what one crazy person can convince other crazy people to do.  Everyone needs something to believe in.  I recommend Jesus Christ, but they want Tyler Durden.")
+    expect(page).to have_content('katch22')
+    # expect(page).to have_content("Madness unbounded.  Don't try to make sense of insanity, just ride a wild ride.")
+  end
 end

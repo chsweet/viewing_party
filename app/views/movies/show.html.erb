@@ -19,8 +19,14 @@
 
 <h3>Summary</h3>
 <p><%= @movie.summary %></p>
-
+<br>
 <h3>Cast</h3>
 <% @actors.each do |actor| %>
   <p class = 'actor' ><%= actor.name %> as <%= actor.role %></p>
+<% end %>
+<hr>
+<h3><%= @reviews.count %> Reviews</h3>
+<% @reviews.each do |review| %>
+  <h4>Author: <%= review.author %></h4>
+  <p><%= review.content %></p>
 <% end %>

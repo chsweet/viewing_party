@@ -23,5 +23,9 @@ class MoviesController < ApplicationController
       end
     end
     @actors = actors.first(10)
+    json_review = MovieDbService.new.movie_reviews(params[:id])
+    @reviews = json_review[:results].map do |review|
+      Review.new(review)
+    end
   end
 end
