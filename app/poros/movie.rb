@@ -5,6 +5,7 @@ class Movie
               :genres,
               :summary,
               :id
+              
   def initialize(data)
     @id = data[:id]
     @title = data[:original_title]
