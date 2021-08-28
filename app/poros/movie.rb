@@ -4,8 +4,6 @@ class Movie
               :runtime,
               :genres,
               :summary,
-              :cast,
-              :reviews,
               :id
   def initialize(data)
     @id = data[:id]
