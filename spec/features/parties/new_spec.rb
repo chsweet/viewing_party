@@ -18,7 +18,6 @@ RSpec.describe 'new viewing party page' do
   it 'displays the movie title', :vcr do
     visit new_party_path(params: {movie_id: 550})
 
-
     expect(page).to have_content('Movie Title: Fight Club')
   end
 

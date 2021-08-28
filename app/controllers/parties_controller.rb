@@ -13,8 +13,7 @@ class PartiesController < ApplicationController
 
     params[:party][:invited].each do |key, value|
        if value == '1'
-         require "pry";binding.pry
-         Attendee.new(party_id: party.id, user_id: key)
+         Attendee.create!(party_id: party.id, user_id: key.to_i)
        end
     end
 
