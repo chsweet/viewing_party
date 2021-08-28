@@ -11,13 +11,9 @@ class Movie
     @id = data[:id]
     @title = data[:original_title]
     @vote_average = data[:vote_average]
-    #convert to hours and minutes
     @runtime = data[:runtime]
     @genres = genre_names(data[:genres])
     @summary = data[:overview]
-    @cast = []
-    @reviews = []
-
   end
 
   def genre_names(data_array)
