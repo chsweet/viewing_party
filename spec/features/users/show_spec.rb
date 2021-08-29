@@ -168,4 +168,13 @@ RSpec.describe 'user dashboard/index page' do
       end
     end
   end
+
+  describe 'logout' do
+    it 'can log user out and redirect to welcome' do
+      click_on 'Log Out'
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('You have now logged out')
+    end
+  end
 end
