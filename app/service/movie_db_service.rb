@@ -1,16 +1,34 @@
 class MovieDbService
   def top_40
-    endpoint = "https://api.themoviedb.org/3/discover/movie?api_key=bf577430a36611e1e70e3fd900b3d9ba&language=en&sort_by=popularity.desc"
+    endpoint = "/3/discover/movie?language=en&sort_by=popularity.desc"
     result_loop(40, endpoint)
   end
 
   def search(input)
-    endpoint = "https://api.themoviedb.org/3/search/movie/?api_key=bf577430a36611e1e70e3fd900b3d9ba&query=#{input}"
+    endpoint = "/3/search/movie/?query=#{input}"
     result_loop(40, endpoint)
   end
 
+  def movie_details(movie_id)
+    endpoint = "/3/movie/#{movie_id}"
+    get_data(endpoint)
+  end
+
+  def movie_actors(movie_id)
+    endpoint="/3/movie/#{movie_id}/credits?"
+    get_data(endpoint)
+  end
+
+  def movie_reviews(movie_id)
+    endpoint="/3/movie/#{movie_id}/reviews?"
+    get_data(endpoint)
+  end
+
   def get_data(endpoint)
-    response = Faraday.get(endpoint)
+    conn = Faraday.new(url: "https://api.themoviedb.org/") do |faraday|
+      faraday.params['api_key'] = ENV['movie_api_key']
+    end
+    response = conn.get(endpoint)
     JSON.parse(response.body, symbolize_names: true)
   end
 

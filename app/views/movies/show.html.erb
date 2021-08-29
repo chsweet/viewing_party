@@ -1,1 +1,33 @@
-<h1>Welcome <%= current_user.email %>!</h1>
+<h2>Welcome <%= current_user.email %>!</h2>
+
+<h1><%= @movie.title %></h1>
+<%= button_to 'Create Viewing Party for Movie', new_party_path, params: {movie_id: @movie.id}, method: :get %>
+<div class="row">
+  <div class="col-3">
+    <h3>Vote Average: <%= @movie.vote_average %> </h3>
+  </div>
+  <div class="col-3">
+    <h3>Runtime: <%= @movie.hours %> hr <%= @movie.minutes %> min </h3>
+  </div>
+  <div class="col-6">
+    <h3>Genre(s): <% @movie.genre_names.each do |genre| %>
+        <%= genre %>
+      <% end %></h3>
+  </div>
+</div>
+
+<hr>
+
+<h3>Summary</h3>
+<p><%= @movie.summary %></p>
+<br>
+<h3>Cast</h3>
+<% @actors.each do |actor| %>
+  <p class = 'actor' ><%= actor.name %> as <%= actor.role %></p>
+<% end %>
+<hr>
+<h3><%= @reviews.count %> Reviews</h3>
+<% @reviews.each do |review| %>
+  <h4>Author: <%= review.author %></h4>
+  <p><%= review.content %></p>
+<% end %>

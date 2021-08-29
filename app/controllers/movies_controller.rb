@@ -14,6 +14,18 @@ class MoviesController < ApplicationController
   end
 
   def show
-
+    json_movie = MovieDbService.new.movie_details(params[:id])
+    @movie = Movie.new(json_movie)
+    json_actor = MovieDbService.new.movie_actors(params[:id])
+    actors = json_actor[:cast].map do |actor|
+      if actor[:known_for_department] == 'Acting'
+        Actor.new(actor)
+      end
+    end
+    @actors = actors.first(10)
+    json_review = MovieDbService.new.movie_reviews(params[:id])
+    @reviews = json_review[:results].map do |review|
+      Review.new(review)
+    end
   end
 end
