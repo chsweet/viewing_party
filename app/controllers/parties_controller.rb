@@ -8,8 +8,8 @@ class PartiesController < ApplicationController
   def create
     json_movie = MovieDbService.new.movie_details(params[:party][:movie_id])
     @movie = Movie.new(json_movie)
-    time = Time.new(params[:party]['date_time(1i)'].to_i, params[:party]['date_time(2i)'].to_i, params[:party]['date_time(3i)'].to_i, params[:party]['date_time(4i)'].to_i, params[:party]['date_time(5i)'].to_i)
-    party = Party.create!(movie_id: @movie.id, movie: @movie.title, user_id: current_user.id, duration: params[:party][:duration], date_time: time)
+
+    party = Party.create!(party_params)
     
     unless current_user.user_friends.empty?
       params[:party][:invited].each do |key, value|
@@ -21,4 +21,9 @@ class PartiesController < ApplicationController
 
     redirect_to dashboard_path
   end
+
+private
+   def party_params
+     params.require(:party).permit(:movie_id, :movie, :user_id, :duration, :date_time)
+   end
 end

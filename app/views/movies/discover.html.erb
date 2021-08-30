@@ -3,6 +3,6 @@
 <%= link_to 'Find Top Rated Movies', movies_path %>
 
 <%= form_with url: movies_path, local: true, method: :get do |f| %>
-  <%= f.text_field :search, value: 'Search by movie title' %>
+  <%= f.text_field :search, value: 'Search by movie title', id: :search %>
   <%= f.submit 'Find Movies' %>
 <% end %>
