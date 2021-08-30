@@ -15,7 +15,7 @@ RSpec.describe 'Movies Index' do
 
       expect(page).to have_css(".movie", count: 40)
       expect('The Suicide Squad').to appear_before('PAW Patrol: The Movie')
-      expect("Free Guy").to appear_before("Sweet Girl")
+      expect("Sweet Girl").to appear_before("Free Guy")
     end
 
     it 'grabs top 40 movies from movies page', :vcr do
@@ -23,7 +23,7 @@ RSpec.describe 'Movies Index' do
 
       expect(page).to have_css(".movie", count: 40)
       expect('The Suicide Squad').to appear_before('PAW Patrol: The Movie')
-      expect("Free Guy").to appear_before("Sweet Girl")
+      expect("Sweet Girl").to appear_before("Free Guy")
     end
   end
 

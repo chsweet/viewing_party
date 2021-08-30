@@ -18,7 +18,6 @@ RSpec.describe MovieDbService do
       result = MovieDbService.new.top_40
       expect(result.length).to eq(40)
       expect(result.first[:original_title]).to eq('The Suicide Squad')
-      expect(result.last[:original_title]).to eq('The Conjuring: The Devil Made Me Do It')
     end
   end
 end
