@@ -84,14 +84,15 @@ RSpec.describe 'user dashboard/index page' do
 
       visit dashboard_path
     end
-    xit 'link to movie show page for the viewing party current user created' do
+
+    xit 'link to movie show page for the viewing party current user created', :vcr do
       #need to figure out the movie link and API call
       within("#host_parties-#{@party_1.id}") do
         expect(page).to have_link(@party_1.movie)
 
         click_link "#{@party_1.movie}"
 
-        expect(current_path).to eq(movie_path(@movie_1))
+        expect(current_path).to eq(movie_path(@party_1.movie_id))
       end
     end
 
@@ -102,7 +103,6 @@ RSpec.describe 'user dashboard/index page' do
     end
 
     it 'displays current user is hosting the party' do
-      #should this be pulling the host from the party?
       within("#host_parties-#{@party_1.id}") do
         expect(page).to have_content("Host: #{@user_1.email}")
       end
@@ -117,13 +117,13 @@ RSpec.describe 'user dashboard/index page' do
       end
     end
 
-    xit 'dispays link to movie show page for viewing parties current user was invited to' do
+    xit 'dispays link to movie show page for viewing parties current user was invited to', :vcr do
       within("#invited_parties-#{@party_2.id}") do
         expect(page).to have_link(@party_2.movie)
 
         click_link "#{@party_2.movie}"
 
-        expect(current_path).to eq(movie_path(@movie_2))
+        expect(current_path).to eq(movie_path(@party_2.movie_id))
       end
 
       within("#invited_parties-#{@party_3.id}") do
@@ -131,7 +131,7 @@ RSpec.describe 'user dashboard/index page' do
 
         click_link "#{@party_3.movie}"
 
-        expect(current_path).to eq(movie_path(@movie_3))
+        expect(current_path).to eq(movie_path(@party_3.movie_id))
       end
     end
 
@@ -141,7 +141,7 @@ RSpec.describe 'user dashboard/index page' do
       end
 
       within("#invited_parties-#{@party_3.id}") do
-        expect(page).to have_content(@party_3.date_time)
+        expect(page).to have_content(@party_3.date_format)
       end
     end
 

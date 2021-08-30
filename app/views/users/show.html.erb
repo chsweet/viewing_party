@@ -24,25 +24,29 @@
 <hr>
 <% current_user.parties.each do |party| %>
   <section id="host_parties-<%= party.id %>">
-    <%= link_to party.movie, "/movie/#{party.movie_id}" %>
+    <%= link_to party.movie, movie_path(party.movie_id) %>
     <li><%= party.date_format %></li>
     <br>
     <li>Host: <%= party.user_email %></li>
     <br>
+    <p>Attendees:</p>
     <% party.attendees.each do |attendee| %>
-    <li>Attendees: <%= attendee.user_email %></li>
+      <li><%= attendee.user_email %></li>
     <% end %>
   </section>
+  <br>
 <% end %>
 <% current_user.invited_parties.each do |party| %>
   <section id="invited_parties-<%= party.id %>">
-    <%= link_to party.movie, "/movie/#{party.movie_id}" %>
+    <%= link_to party.movie, movie_path(party.movie_id) %>
     <li><%= party.date_format %></li>
     <br>
     <li>Host: <%= party.user_email %></li>
     <br>
+    <p>Attendees:</p>
     <% party.attendees.each do |attendee| %>
-    <li>Attendees: <%= attendee.user_email %></li>
+      <li><%= attendee.user_email %></li>
     <% end %>
   </section>
+  <br>
 <% end %>
