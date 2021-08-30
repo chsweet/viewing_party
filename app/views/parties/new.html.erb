@@ -4,6 +4,8 @@
 <h4>Movie Title: <%= @movie.title %></h4>
 <%= form_with model: @party, local: true do |form| %>
   <%= form.hidden_field :movie_id, value: @movie.id %>
+  <%= form.hidden_field :movie, value: @movie.title %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.label :duration, 'Party Duration' %>
   <%= form.number_field :duration, value: @movie.runtime, id: :duration %>
   <%= form.label :date_time, 'Day & Start Time' %>

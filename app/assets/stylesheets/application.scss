@@ -10,10 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
-
+ @import "bootstrap";
+.container {
+  position: relative;
+  min-height: 100VH;
+}
 body {
   display: flex;
   min-height: 100vh;
@@ -28,4 +30,11 @@ footer {
   display: flex;
   align-self: baseline;
   flex-direction: row;
+  position: absolute;
+  bottom: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px auto;
 }
