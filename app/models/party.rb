@@ -6,4 +6,8 @@ class Party < ApplicationRecord
   validates :user_id, presence: true
   validates :date_time, presence: true
   validates :duration, presence: true
+
+  def date_format
+    date_time.strftime("%B %d, %Y %I:%M %P")
+  end
 end

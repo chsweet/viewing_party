@@ -96,9 +96,8 @@ RSpec.describe 'user dashboard/index page' do
     end
 
     it 'displays the date & time of event that current user created' do
-      #need to format the date
       within("#host_parties-#{@party_1.id}") do
-        expect(page).to have_content(@party_1.date_time)
+        expect(page).to have_content(@party_1.date_format)
       end
     end
 
@@ -138,7 +137,7 @@ RSpec.describe 'user dashboard/index page' do
 
     it 'dispays the date & time of event for viewing parties current user was invited to' do
       within("#invited_parties-#{@party_2.id}") do
-        expect(page).to have_content(@party_2.date_time)
+        expect(page).to have_content(@party_2.date_format)
       end
 
       within("#invited_parties-#{@party_3.id}") do
