@@ -8,8 +8,9 @@ class PartiesController < ApplicationController
   def create
     json_movie = MovieDbService.new.movie_details(params[:party][:movie_id])
     @movie = Movie.new(json_movie)
-    party = Party.create!(party_params)
 
+    party = Party.create!(party_params)
+    
     unless current_user.user_friends.empty?
       params[:party][:invited].each do |key, value|
          if value == '1'
