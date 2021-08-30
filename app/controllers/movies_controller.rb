@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
     json_movie = MovieDbService.new.movie_details(params[:id])
     @movie = Movie.new(json_movie)
     json_actor = MovieDbService.new.movie_actors(params[:id])
+    #move first 10 before .map
     actors = json_actor[:cast].map do |actor|
       if actor[:known_for_department] == 'Acting'
         Actor.new(actor)
