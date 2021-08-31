@@ -14,10 +14,10 @@ RSpec.describe MovieDbService do
            to_return(status: 200, body: json_response, headers: {})
     end
 
-    it 'can retrieve top 40 movies', :vcr do
-      result = MovieDbService.new.top_40
-      expect(result.length).to eq(40)
-      expect(result.first[:original_title]).to eq('The Suicide Squad')
-    end
+    # it 'can retrieve top 40 movies', :vcr do
+    #   result = MovieDbService.new.top_40
+    #   expect(result.length).to eq(40)
+    #   expect(result.first[:original_title]).to eq('The Suicide Squad')
+    # end
   end
 end
