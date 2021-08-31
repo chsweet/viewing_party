@@ -1,11 +1,11 @@
 class MovieDbFacade
   def self.top_40
     endpoint = "/3/discover/movie?language=en&sort_by=popularity.desc"
-    json = result_loop(40, endpoint)
+    result_loop(40, endpoint)
   end
 
   def self.search(input)
-    endpoint = "/3/search/movie/?query=#{input}"
+    endpoint = "/3/search/movie?query=#{input}"
     result_loop(40, endpoint)
   end
 
