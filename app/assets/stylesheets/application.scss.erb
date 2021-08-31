@@ -15,15 +15,14 @@
 .container {
   position: relative;
   min-height: 100VH;
+  padding-bottom: 80px;
 }
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+  display: block;
+  min-height: auto;
 }
 
 main {
-  flex: 1;
 }
 
 footer {
@@ -31,12 +30,33 @@ footer {
   align-self: baseline;
   flex-direction: row;
   position: absolute;
+  height: 80px;
   bottom: 0;
 }
 
 h1 {
   text-align: center;
   margin: 20px auto;
+}
+
+#hamburger {
+  height: 50px;
+  width: 50px;
+  background-image: url(<%= asset_path 'icons8-menu-50.png' %>);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+#hamburger.active {
+  height: 50px;
+  width: 50px;
+  background-image: url(<%= asset_path 'icons8-circled-x-50.png' %>);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
 .menu {
