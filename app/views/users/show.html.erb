@@ -1,3 +1,16 @@
+
+<div id = "hamburger">Click Here</div>
+<div class="menu" onclick = "menuToggle()" >
+  <ul>
+    <li><%= link_to 'Discover Movies', discover_path %></li>
+    <li><%= link_to 'Dashboard', dashboard_path %></li>
+    <li><%= link_to 'Github Repo', 'https://github.com/chsweet/viewing_party' %></li>
+    <li><%= link_to "Carina's LinkedIn", 'https://www.linkedin.com/in/carina-h-sweet/' %></li>
+    <li><%= link_to "Marla's LinkedIn", 'https://www.linkedin.com/in/marla-a-schulz/' %></li>
+    <li><%= link_to 'Log Out', session_path(current_user.id), method: :delete %></li>
+  </ul>
+</div>
+
 <h1>Welcome <%= current_user.email %>!</h1>
 <%= button_to 'Log Out', session_path(current_user.id), method: :delete %>
 <br>
@@ -51,3 +64,5 @@
   </section>
   <br>
 <% end %>
+
+<script src="/assets/javascripts/menu.js"></script>
