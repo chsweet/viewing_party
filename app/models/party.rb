@@ -9,6 +9,6 @@ class Party < ApplicationRecord
   validates :duration, presence: true
 
   def date_format
-    date_time.strftime("%B %d, %Y %I:%M %P")
+    date_time.strftime('%B %d, %Y %I:%M %P')
   end
 end
