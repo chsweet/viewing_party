@@ -1,8 +1,9 @@
-let menu = document.querySelector(".menu");
-let hamburger = document.getElementById("hamburger")
-  debugger;
+var menu_something = document.querySelector(".menu");
+var hamburger = document.getElementById("hamburger")
+// debugger;
 hamburger.addEventListener('click', menuToggle())
 
 function menuToggle() {
-  menu.classList.toggle('.active')
+  debugger;
+  menu_something.classList.toggle('.active')
 }
