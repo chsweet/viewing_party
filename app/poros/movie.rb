@@ -22,7 +22,7 @@ class Movie
   end
 
   def hours
-    @runtime/60
+    @runtime / 60
   end
 
   def minutes

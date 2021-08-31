@@ -7,10 +7,9 @@ class FollowsController < ApplicationController
 
     if friend.nil?
       flash[:notice] = "I'm sorry your friend cannot be found."
-      redirect_to dashboard_path
     else
       Follow.create(user_id: current_user.id, friend_id: friend.id)
-      redirect_to dashboard_path
     end
+    redirect_to dashboard_path
   end
 end
