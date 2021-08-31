@@ -1,5 +1,4 @@
-
-<div id = "hamburger" onclick = "menuToggle();">Click Here</div>
+<div id = "hamburger" onclick = "menuToggle();"></div>
 <div class="menu" >
   <ul>
     <li><%= link_to 'Discover Movies', discover_path %></li>
@@ -12,9 +11,6 @@
 </div>
 
 <h1>Welcome <%= current_user.email %>!</h1>
-<%= button_to 'Log Out', session_path(current_user.id), method: :delete %>
-<br>
-<%= button_to 'Discover Movies', discover_path, method: :get %>
 <br>
 <h3>Friends</h3>
 <hr>

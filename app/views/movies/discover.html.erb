@@ -1,3 +1,15 @@
+<div id = "hamburger" onclick = "menuToggle();"></div>
+<div class="menu" >
+  <ul>
+    <li><%= link_to 'Discover Movies', discover_path %></li>
+    <li><%= link_to 'Dashboard', dashboard_path %></li>
+    <li><%= link_to 'Github Repo', 'https://github.com/chsweet/viewing_party' %></li>
+    <li><%= link_to "Carina's LinkedIn", 'https://www.linkedin.com/in/carina-h-sweet/' %></li>
+    <li><%= link_to "Marla's LinkedIn", 'https://www.linkedin.com/in/marla-a-schulz/' %></li>
+    <li><%= link_to 'Log Out', session_path(current_user.id), method: :delete %></li>
+  </ul>
+</div>
+
 <h1>Welcome <%= current_user.email %>!</h1>
 
 <%= link_to 'Find Top Rated Movies', movies_path %>
@@ -6,3 +18,5 @@
   <%= f.text_field :search, value: 'Search by movie title', id: :search %>
   <%= f.submit 'Find Movies' %>
 <% end %>
+
+<script src="/assets/menu.js"></script>
