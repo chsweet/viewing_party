@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :follows
+  has_many :follows, dependent: :destroy
   has_many :friends, through: :follows
 
   has_many :parties, dependent: :destroy
@@ -14,6 +14,6 @@ class User < ApplicationRecord
   end
 
   def invited_parties
-    Party.joins(:attendees).where("attendees.user_id = ?", self.id)
+    Party.joins(:attendees).where('attendees.user_id = ?', id)
   end
 end

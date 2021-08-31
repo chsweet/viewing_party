@@ -1,6 +1,6 @@
 class MovieDbFacade
   def self.top_40
-    endpoint = "/3/discover/movie?language=en&sort_by=popularity.desc"
+    endpoint = '/3/discover/movie?language=en&sort_by=popularity.desc'
     result_loop(40, endpoint)
   end
 
@@ -21,14 +21,14 @@ class MovieDbFacade
   end
 
   def self.movie_actors(movie_id)
-    endpoint="/3/movie/#{movie_id}/credits?"
+    endpoint = "/3/movie/#{movie_id}/credits?"
     filter_crew(MovieDbService.get_data(endpoint)).map do |actor|
       Actor.new(actor)
     end
   end
 
   def self.movie_reviews(movie_id)
-    endpoint="/3/movie/#{movie_id}/reviews?"
+    endpoint = "/3/movie/#{movie_id}/reviews?"
     MovieDbService.get_data(endpoint)[:results].map do |review|
       Review.new(review)
     end
@@ -45,8 +45,7 @@ class MovieDbFacade
     json = []
     loop do
       page += 1
-      endpoint = endpoint + "&page=#{page}"
-      response = MovieDbService.get_data(endpoint)
+      response = MovieDbService.get_data(endpoint += "&page=#{page}")
       json << response[:results]
       break if json.flatten.length >= results_num || json.flatten.length == response[:total_results]
     end

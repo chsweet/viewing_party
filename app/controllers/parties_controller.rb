@@ -10,17 +10,16 @@ class PartiesController < ApplicationController
 
     unless current_user.user_friends.empty?
       params[:party][:invited].each do |key, value|
-         if value == '1'
-           Attendee.create!(party_id: party.id, user_id: key.to_i)
-         end
+        Attendee.create!(party_id: party.id, user_id: key.to_i) if value == '1'
       end
     end
 
     redirect_to dashboard_path
   end
 
-private
-   def party_params
-     params.require(:party).permit(:movie_id, :movie, :user_id, :duration, :date_time)
-   end
+  private
+
+  def party_params
+    params.require(:party).permit(:movie_id, :movie, :user_id, :duration, :date_time)
+  end
 end
