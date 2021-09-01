@@ -11,5 +11,4 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
