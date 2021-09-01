@@ -18,7 +18,7 @@
   <%= form_with model: @follow, local: true do |f|  %>
     <%= f.label :email, "Friend's E-mail" %>
     <%= f.text_field :email, id: :follow_email %>
-    <%= f.submit 'Add Friend' %>
+    <%= f.submit 'Add Friend', class: 'button' %>
   <% end %>
   <br>
   <% if current_user.user_friends == [] %>
