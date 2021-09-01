@@ -12,9 +12,15 @@
     <div class="container">
       <main>
         <% flash.each do |name, msg| %>
-          <div class="alert">
-            <%= content_tag :div, msg, class:name %>
-          </div>
+          <% if name == 'notice' %>
+            <div class="alert alert-info">
+              <%= content_tag :div, msg, class:name %>
+            </div>
+          <% else %>
+            <div class="alert alert-danger">
+              <%= content_tag :div, msg, class:name %>
+            </div>
+          <% end %>
         <% end %>
         <%= yield %>
       </main>
