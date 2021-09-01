@@ -12,7 +12,7 @@
 
 <h1>Welcome <%= current_user.email %>!</h1>
 
-<h3>Viewing Party Details</h3>
+<h3 class = 'title'>Viewing Party Details</h3>
 <h4>Movie Title: <%= @movie.title %></h4>
 <%= form_with model: @party, local: true do |form| %>
   <%= form.hidden_field :movie_id, value: @movie.id %>
@@ -25,11 +25,13 @@
   <%= form.label :invited, 'Include'%>
   <%= form.fields_for :invited do |invited_form| %>
     <% current_user.user_friends.each do |friend| %>
-      <%= invited_form.check_box(friend.id) %>
-      <%= invited_form.label(friend.id, "#{friend.email}") %>
+      <div class="invited">
+        <%= invited_form.check_box(friend.id) %>
+        <%= invited_form.label(friend.id, "#{friend.email}") %>
+      </div>
     <% end %>
   <% end %>
-  <%= form.submit 'Create Party' %>
+  <%= form.submit 'Create Party', class: 'button' %>
 <% end %>
 
 <script src="/assets/menu.js"></script>
