@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'faraday'
 gem 'bootstrap', '~> 5.1.0'
+gem 'geckodriver-helper'
 
 group :development, :test do
   gem 'pry'
@@ -42,6 +43,7 @@ group :test do
   gem 'webmock'
   gem 'orderly'
   gem 'vcr'
+  gem 'selenium-webdriver'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
