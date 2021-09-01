@@ -17,10 +17,12 @@ RSpec.describe 'user dashboard/index page' do
     expect(page).to have_content("Welcome #{@user_1.email}!")
   end
 
-  it 'displays button to Discover Moives page' do
-    expect(page).to have_button("Discover Movies")
+  it 'displays button to Discover Movies page', js: true do
 
-    click_button 'Discover Movies'
+    a = page.find('#hamburger')
+
+    a.click
+    click_on 'Discover Movies'
 
     expect(current_path).to eq(discover_path)
   end
@@ -169,7 +171,11 @@ RSpec.describe 'user dashboard/index page' do
   end
 
   describe 'logout' do
-    it 'can log user out and redirect to welcome' do
+    it 'can log user out and redirect to welcome', js: true do
+      a = page.find('#hamburger')
+
+      a.click
+      
       click_on 'Log Out'
 
       expect(current_path).to eq(root_path)

@@ -72,6 +72,9 @@ RSpec.configure do |config|
   ]
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
 end
 
 Shoulda::Matchers.configure do |config|
@@ -86,4 +89,5 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.filter_sensitive_data('< movie_api_key >') { ENV['movie_api_key'] }
   config.configure_rspec_metadata!
+  config.ignore_localhost = true
 end
