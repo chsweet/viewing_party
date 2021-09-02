@@ -1,5 +1,7 @@
-var menu = document.querySelector(".menu");
-var hamburger = document.getElementById("hamburger")
+body.onload = variables() {
+  var menu = document.querySelector(".menu");
+  var hamburger = document.getElementById("hamburger")
+}
 
 function menuToggle() {
   menu.classList.toggle('active')
