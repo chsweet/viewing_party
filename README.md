@@ -74,8 +74,7 @@ Learning Goals:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To run this project localy please follow the instructions below. For production environment go to: [Movie Night](https://glacial-ridge-45838.herokuapp.com/)
 
 
 ### Installation
@@ -108,7 +107,7 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Movie Night can be used to connect with your friends and schedule watch parties for a movie of your choosing. Both the host and friends you want to invite must be registered with viewing party to use full functionality of the app. 
+Movie Night can be used to connect with your friends and schedule watch parties for a movie of your choosing. Both the host and friends you want to invite must be registered with viewing party to use full functionality of the app. Access Movie Night [here](https://glacial-ridge-45838.herokuapp.com/).
 
 
 <!-- CONTACT -->
