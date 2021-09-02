@@ -1,4 +1,4 @@
-body.onload = variables() {
+body.onload = function() {
   var menu = document.querySelector(".menu");
   var hamburger = document.getElementById("hamburger")
 }
