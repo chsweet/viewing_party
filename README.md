@@ -8,6 +8,7 @@
 -->
 
 <!-- PROJECT LOGO -->
+![Asset 1camera](https://user-images.githubusercontent.com/42476338/131890851-87e0a2a4-6f35-4fe2-be9b-bc3a84be19bb.png)
 <br />
   ![Asset 1camera](https://user-images.githubusercontent.com/42476338/131884922-a29acba0-4ad6-4e90-a505-692049d0cd08.png)
   <h3 align="center">Movie Night</h3>
