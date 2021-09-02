@@ -6,4 +6,8 @@ class MovieDbService
     response = conn.get(endpoint)
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def connection
+    #faraday (what all the endpoints need)
+  end
 end
